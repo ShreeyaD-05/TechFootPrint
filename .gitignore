@@ -1,0 +1,192 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# React
+/frontend/build
+/frontend/.env.local
+/frontend/.env.development.local
+/frontend/.env.test.local
+/frontend/.env.production.local
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+logs/
+
+# Docker
+docker-compose.override.yml
+
+# Alembic
+alembic/versions/*.pyc
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Kubernetes
+*.kubeconfig
+
+# LaTeX compilation files
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.idx
+*.ilg
+*.ind
+*.nav
+*.snm
+*.vrb
+*.bcf
+*.run.xml
+
+# Research paper artifacts (keep source files, ignore compiled outputs)
+documentation/paper/*.pdf
+# Keep PNG files for figures but ignore temporary ones
+documentation/paper/*_temp.png
+documentation/paper/*_draft.png
+
+# Model checkpoints and large files
+backend/checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.pkl
+*.pickle
+
+# Data files (keep small samples, ignore large datasets)
+data/raw/
+data/processed/
+*.csv.gz
+*.json.gz
+*.parquet
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# Machine learning experiment tracking
+mlruns/
+wandb/
+tensorboard_logs/
+experiments/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# System files
+.DS_Store?
+ehthumbs.db
+Icon?
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Configuration files with secrets (keep examples)
+config/secrets.yaml
+config/production.yaml
+*.secret
+*.key
+*.pem
+
+# Cache directories
+.cache/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+.conda/
+
+# IDE specific files
+.vscode/settings.json
+.vscode/launch.json
+.idea/workspace.xml
+.idea/tasks.xml
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+Thumbs.db
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
