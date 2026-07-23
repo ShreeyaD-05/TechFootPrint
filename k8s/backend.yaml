@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: devanalytics
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8000
+      targetPort: 8000
+  selector:
+    app: backend
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: devanalytics
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: devanalytics/backend:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DATABASE_URL
+          value: postgresql://devuser:devpass@postgres:5432/devanalytics
+        - name: REDIS_URL
+          value: redis://redis:6379/0
+        - name: RABBITMQ_URL
+          value: amqp://guest:guest@rabbitmq:5672/
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: app-secret
+              key: jwt-secret
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"

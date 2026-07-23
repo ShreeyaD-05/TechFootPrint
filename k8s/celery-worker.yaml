@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: celery-worker
+  namespace: devanalytics
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: celery-worker
+  template:
+    metadata:
+      labels:
+        app: celery-worker
+    spec:
+      containers:
+      - name: celery-worker
+        image: devanalytics/backend:latest
+        command: ["celery", "-A", "workers.celery_app", "worker", "--loglevel=info"]
+        env:
+        - name: DATABASE_URL
+          value: postgresql://devuser:devpass@postgres:5432/devanalytics
+        - name: REDIS_URL
+          value: redis://redis:6379/0
+        - name: RABBITMQ_URL
+          value: amqp://guest:guest@rabbitmq:5672/
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
